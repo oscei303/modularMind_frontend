@@ -31,3 +31,26 @@
     transform: rotate(360deg);
   }
 }
+
+.filter {
+  float: right;
+}
+
+.nav {
+  /* width: 100%; */
+  float: right;
+}
+
+/* .card {
+  -moz-border-radius:7px 7px 7px 7px;
+  border:1px solid silver;
+  float:left;
+  margin:10px;
+  min-height:100px;
+  padding:5px;
+  width:200px;
+} */
+/* 
+.synth-container {
+
+} */

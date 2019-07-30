@@ -1,15 +1,34 @@
 import React from 'react';
 import Part from '../components/part'
+import { Card } from 'semantic-ui-react'
+
 
 
 class PartsContainer extends React.Component {
 
+  renderPart = () => {
+    return this.props.parts.map(part => {
+      return (
+        
+        <Part part={part} deletePart={this.props.deletePart} handleClick={this.props.addPart} />
+      )
+       
+    })
+  }
+  
+
   render(){
+    console.log(this.props)
     return (
       <div>
-        <Part />
+        <h3>HOME</h3>
+        <Card.Group itemsPerRow={6}>
+          {this.renderPart()}
+        </Card.Group>
+
       </div>
-    )
+)
+    
   }
 }
 

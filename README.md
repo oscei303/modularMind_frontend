@@ -66,3 +66,37 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+class part extends React.Component {
+
+  render(){
+      console.log(this.props.part)
+    return (
+      <div class="part">
+          <div class="thumb-img">
+              <img src={this.props.part.img}/>
+          </div>
+          <div class="main-info">
+              <div class="elements-top">
+                  <h3>{this.props.part.name}</h3>
+                  <h4>{this.props.part.company}</h4>
+              </div>
+              <div class="elements-bottom"> 
+                <div class="part-tags">
+                    <h5>{this.props.part.function} </h5>
+                    <h6>{this.props.part.hp}</h6>
+                </div>
+                <div class="bottom-buttons">
+                    <button>ADD to Synth</button>
+                </div>
+              </div>
+          </div>
+          <br>
+          </br>
+      </div>
+    )
+  }
+}
+
+export default part;
