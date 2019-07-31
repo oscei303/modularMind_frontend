@@ -8,7 +8,7 @@ class SynthsContainer extends React.Component {
    renderPart = () => {
     return this.props.mounts.map(part => {
       return (
-        <Part part={part} handleClick={this.props.removePart}/>
+        <Part part={part} deletePart={this.props.deletePart}  handleClick={this.props.removePart}/>
       )
     })
   }

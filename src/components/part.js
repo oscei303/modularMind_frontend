@@ -16,7 +16,8 @@ class Part extends React.Component {
         name='plus circle'/>
       </a>
       <a>
-       <Icon name='info' />
+       <Icon onClick={() => {this.props.findPart(this.props.part.id)}}
+       name='info' />
       </a>
       <a>
        <Icon name='edit' />
@@ -36,7 +37,9 @@ class Part extends React.Component {
     header={this.props.part.name}
     meta={this.props.part.company}
     description={this.props.part.function}
+    onClick={() => this.props.handleClick(this.props.part.id)}
     extra={extra}
+    
   />      
 )
     

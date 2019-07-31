@@ -10,7 +10,11 @@ class PartsContainer extends React.Component {
     return this.props.parts.map(part => {
       return (
         
-        <Part part={part} deletePart={this.props.deletePart} handleClick={this.props.addPart} />
+        <Part 
+          part={part} 
+          deletePart={this.props.deletePart} 
+          findPart={this.props.findPart}
+          handleClick={this.props.addPart} />
       )
        
     })

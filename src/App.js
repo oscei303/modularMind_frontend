@@ -6,16 +6,28 @@ import './App.css'
 class App extends React.Component {
 
   state={
+    selectedPart: null,
     parts: [],
     mounts: [],
     addClick : false,
-    listClick: "",
+    // listClick: "",
     sortClick: false,
-    homeClick: "",
+    // homeClick: "",
+    viewClick: "",
     name: "",
     function: "",
-    comapany: "",
+    company: "",
     img: ""
+  }
+
+  findPart = (partId) => {
+    const foundPart = this.state.parts.find(partObj => {
+      return partId === partObj.id
+    })
+    this.setState({
+      selectedPart: foundPart,
+      viewClick: 'view'
+    }, () => console.log(this.state.selectedPart))
   }
 
   addPart = (partId) => {
@@ -56,7 +68,7 @@ class App extends React.Component {
 
   sortModules = () => {
     this.setState({
-     sortClick : !this.state.sortClick
+     sortClick : 'sort'
     })
 
     if(this.state.sortClick){
@@ -95,13 +107,19 @@ class App extends React.Component {
 
   showList = () => {
     this.setState({
-      listClick: !this.state.listClick
+      viewClick: 'list'
+    })
+  }
+
+  view = () => {
+    this.setState({
+      viewClick: 'view'
     })
   }
 
    homeList = () => {
      this.setState({
-       homeClick: !this.state.homeClick
+       viewClick: 'home'
      })
    }
 
@@ -157,7 +175,9 @@ class App extends React.Component {
   }).then(resp => resp.json())
     .then(data => {
       this.setState({
-        parts: [...this.state.parts, data]
+        parts: [...this.state.parts, data],
+        addClick: false
+
       })
     })
   }
@@ -178,6 +198,8 @@ class App extends React.Component {
           sortModules={this.sortModules}
         />
         <MainContainer
+          viewClick={this.state.viewClick}
+          findPart={this.findPart}
           delete={this.deletePart} 
           newModule={this.newModule}
           handleChange={this.handleChange}

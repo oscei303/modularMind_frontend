@@ -8,10 +8,10 @@ class NavBar extends React.Component {
     //  
     return (
       <div className='nav'> 
-        <Button onClick={this.props.homeList}>Home</Button>
-        <Button onClick={this.props.sortModules}>Sort by Name</Button>
-        <Button onClick={this.props.showList}>My List </Button>
-        <Button onClick={this.props.addClick}>New Module</Button>
+        <Button primary onClick={this.props.homeList}>Home</Button>
+        <Button primary onClick={this.props.sortModules}>Sort by Name</Button>
+        <Button primary onClick={this.props.showList}>My List </Button>
+        <Button primary onClick={this.props.addClick}>New Module</Button>
       </div>
     )
   }

@@ -3,10 +3,38 @@ import PartsContainer from './PartsContainer'
 import SynthsContainer from './SynthsContainer'
 import Form from '../components/form'
 import Home from '../components/home'
+import View from '../components/view'
 
 
 
 class MainContainer extends React.Component {
+
+  switchView = () => {
+  switch(this.state.viewClick) {
+    case 'list':
+      return (
+          <SynthsContainer 
+          mounts={this.props.mounts} 
+          deletePart={this.props.delete}  
+          removePart={this.props.removePart} />
+      )
+    case 'home':
+      return (
+         <PartsContainer 
+          parts={this.props.parts} 
+          deletePart={this.props.delete} 
+          addPart={this.props.addPart}
+          findPart={this.props.findPart}
+          />
+      )
+
+    case 'view':
+      return <View />
+    default:
+      return null;
+  }
+}
+  
 
   render(){
     // console.log(this.props)
@@ -25,9 +53,17 @@ class MainContainer extends React.Component {
         }
         {this.props.showList
         ?
-        <SynthsContainer mounts={this.props.mounts}  removePart={this.props.removePart} />
+        <SynthsContainer 
+          mounts={this.props.mounts} 
+          deletePart={this.props.delete}  
+          removePart={this.props.removePart} />
         :
-        <PartsContainer parts={this.props.parts} deletePart={this.props.delete} addPart={this.props.addPart}/>
+        <PartsContainer 
+          parts={this.props.parts} 
+          deletePart={this.props.delete} 
+          addPart={this.props.addPart}
+          findPart={this.props.findPart}
+          />
 
         }
         <br/>
