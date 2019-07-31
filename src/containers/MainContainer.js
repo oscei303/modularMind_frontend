@@ -10,7 +10,7 @@ import View from '../components/view'
 class MainContainer extends React.Component {
 
   switchView = () => {
-  switch(this.state.viewClick) {
+  switch(this.props.viewClick) {
     case 'list':
       return (
           <SynthsContainer 
@@ -29,9 +29,16 @@ class MainContainer extends React.Component {
       )
 
     case 'view':
-      return <View />
+      return <View
+        selectedPart={this.props.selectedPart}
+       />
     default:
-      return null;
+      return     <PartsContainer 
+          parts={this.props.parts} 
+          deletePart={this.props.delete} 
+          addPart={this.props.addPart}
+          findPart={this.props.findPart}
+          />;
   }
 }
   
@@ -51,21 +58,7 @@ class MainContainer extends React.Component {
         :
         null
         }
-        {this.props.showList
-        ?
-        <SynthsContainer 
-          mounts={this.props.mounts} 
-          deletePart={this.props.delete}  
-          removePart={this.props.removePart} />
-        :
-        <PartsContainer 
-          parts={this.props.parts} 
-          deletePart={this.props.delete} 
-          addPart={this.props.addPart}
-          findPart={this.props.findPart}
-          />
-
-        }
+        {this.switchView()}
         <br/>
       </div>
     )

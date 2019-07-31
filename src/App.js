@@ -198,6 +198,7 @@ class App extends React.Component {
           sortModules={this.sortModules}
         />
         <MainContainer
+          selectedPart={this.state.selectedPart}
           viewClick={this.state.viewClick}
           findPart={this.findPart}
           delete={this.deletePart} 
